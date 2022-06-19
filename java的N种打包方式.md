@@ -21,7 +21,7 @@
                     <!--可不指定-->
                     <archive>
                         <manifest>
-                            <mainClass>com.zm.pack.Test</mainClass>
+                            <mainClass>com.zm.pack.TestBatchQueue</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
