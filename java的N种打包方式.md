@@ -31,7 +31,7 @@
 ```
 > 可以指定mainClass启动
 ```shell
-java -cp java-packaging-1.0-SNAPSHOT-jar-with-dependencies.jar com.zm.pack.Test2
+java -cp java-packaging-1.0-jar-with-dependencies.jar com.zm.pack.Test
 ```
 
 
@@ -72,7 +72,7 @@ java -cp java-packaging-1.0-SNAPSHOT-jar-with-dependencies.jar com.zm.pack.Test2
 ```
 > 可以指定mainClass启动
 ```shell
-java -cp java-packaging-1.0-SNAPSHOT-jar-with-dependencies.jar com.zm.pack.Test2
+java -Djava.ext.dirs=lib -cp java-packaging-1.0.jar com.zm.pack.Test
 ```
 
 
