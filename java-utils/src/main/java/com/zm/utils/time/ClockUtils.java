@@ -31,11 +31,19 @@ public class ClockUtils {
     }
 
 
+    public static int compare(String start, String end) {
+
+        return stringToDate(start).compareTo(stringToDate(end));
+    }
+
+
     public static void main(String[] args) {
         System.out.println(ClockUtils.stringToDate("2022-10-20"));
 
         System.out.println(ClockUtils.dateToString(new Date()));
 
+
+        System.out.println(ClockUtils.compare("2022-10-21", "2022-10-21"));
 
     }
 
