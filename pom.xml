@@ -12,6 +12,7 @@
         <module>java-concurrency</module>
         <module>mix-scala</module>
         <module>java-utils</module>
+        <module>java-log</module>
     </modules>
 
 
