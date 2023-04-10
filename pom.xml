@@ -13,6 +13,9 @@
         <module>mix-scala</module>
         <module>java-utils</module>
         <module>java-log</module>
+        <module>calcite-demo</module>
+        <module>object-pool</module>
+        <module>java-lucene</module>
     </modules>
 
 
