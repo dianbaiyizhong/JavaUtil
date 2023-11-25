@@ -25,63 +25,63 @@ public class DemoTest {
 
     public static void main(String[] args) throws Exception {
 
-//        // 1. 定义表集合
-//        Map<String, Table> tableMap = new HashMap<>();
-//
-//        // 定义表1
-//
-//        Faker faker = new Faker();
-//
-//        {
-//            List<List<Object>> userInfoList = new ArrayList<>();
-//            // 定义表1数据
-//            for (int i = 0; i < 100; i++) {
-//                List<Object> list = new ArrayList<>();
-//                list.add(faker.idNumber().invalid());
-//                list.add(faker.name().fullName());
-//                list.add(faker.job().title());
-//                userInfoList.add(list);
-//            }
-//
-//            // 定义表2的结构
-//            List<MemoryColumn> meta = new ArrayList<>();
-//            MemoryColumn id = new MemoryColumn("id", String.class);
-//            MemoryColumn name = new MemoryColumn("name", String.class);
-//            MemoryColumn job = new MemoryColumn("job", String.class);
-//            meta.add(id);
-//            meta.add(name);
-//            meta.add(job);
-//
-//            tableMap.put("t_user_info", new MemoryTable(meta, userInfoList));
-//
-//        }
-//
-//        {
-//            // 定义表2数据
-//            List<List<Object>> dataList = new ArrayList<>();
-//            for (int i = 0; i < 10; i++) {
-//                List<Object> list = new ArrayList<>();
-//                list.add(faker.idNumber().invalid());
-//                list.add(faker.job().title());
-//                dataList.add(list);
-//            }
-//            // 定义表2结构
-//            List<MemoryColumn> meta = new ArrayList<>();
-//            MemoryColumn id = new MemoryColumn("id", String.class);
-//            MemoryColumn job = new MemoryColumn("job", String.class);
-//            meta.add(id);
-//            meta.add(job);
-//
-//            tableMap.put("t_dept_info", new MemoryTable(meta, dataList));
-//        }
-//
-//        MemorySchema memorySchema = new MemorySchema(tableMap);
+        // 1. 定义表集合
+        Map<String, Table> tableMap = new HashMap<>();
 
-//        new DemoTest().getData(memorySchema);
+        // 定义表1
 
-        UserMapper userMapper = getMapper(UserMapper.class);
+        Faker faker = new Faker();
 
-        System.out.println(userMapper.getAll());
+        {
+            List<List<Object>> userInfoList = new ArrayList<>();
+            // 定义表1数据
+            for (int i = 0; i < 100; i++) {
+                List<Object> list = new ArrayList<>();
+                list.add(faker.idNumber().invalid());
+                list.add(faker.name().fullName());
+                list.add(faker.job().title());
+                userInfoList.add(list);
+            }
+
+            // 定义表2的结构
+            List<MemoryColumn> meta = new ArrayList<>();
+            MemoryColumn id = new MemoryColumn("id", String.class);
+            MemoryColumn name = new MemoryColumn("name", String.class);
+            MemoryColumn job = new MemoryColumn("job", String.class);
+            meta.add(id);
+            meta.add(name);
+            meta.add(job);
+
+            tableMap.put("t_user_info", new MemoryTable(meta, userInfoList));
+
+        }
+
+        {
+            // 定义表2数据
+            List<List<Object>> dataList = new ArrayList<>();
+            for (int i = 0; i < 10; i++) {
+                List<Object> list = new ArrayList<>();
+                list.add(faker.idNumber().invalid());
+                list.add(faker.job().title());
+                dataList.add(list);
+            }
+            // 定义表2结构
+            List<MemoryColumn> meta = new ArrayList<>();
+            MemoryColumn id = new MemoryColumn("id", String.class);
+            MemoryColumn job = new MemoryColumn("job", String.class);
+            meta.add(id);
+            meta.add(job);
+
+            tableMap.put("t_dept_info", new MemoryTable(meta, dataList));
+        }
+
+        MemorySchema memorySchema = new MemorySchema(tableMap);
+
+        new DemoTest().getData(memorySchema);
+
+//        UserMapper userMapper = getMapper(UserMapper.class);
+//
+//        System.out.println(userMapper.getAll());
 
 
     }

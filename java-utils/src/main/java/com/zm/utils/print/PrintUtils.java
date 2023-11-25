@@ -13,24 +13,42 @@ public class PrintUtils {
 
     @SuppressWarnings("unchecked")
     public static String getPrintStrByMap(Object mapListParam) {
-        List<Map<Object,Object>> mapList = (List<Map<Object, Object>>) mapListParam;
-        TableGenerator tableGenerator = new TableGenerator();
-        // 获取一个元素
-        Optional<Map<Object, Object>> first = mapList.stream().findFirst();
-        // 得到key集合
-        Set<Object> keyObjects = first.get().keySet();
-        List<Object> objects = new ArrayList<>(keyObjects);
-        // 转string
-        List<String> headList = objects.stream().map(String::valueOf).collect(Collectors.toList());
+//        List<Map<Object,Object>> mapList = (List<Map<Object, Object>>) mapListParam;
+       TableGenerator tableGenerator = new TableGenerator();
+//        // 获取一个元素
+//        Optional<Map<Object, Object>> first = mapList.stream().findFirst();
+//        // 得到key集合
+//        Set<Object> keyObjects = first.get().keySet();
+//        List<Object> objects = new ArrayList<>(keyObjects);
+//        // 转string
+//        List<String> headList = objects.stream().map(String::valueOf).collect(Collectors.toList());
+//
+//        List<List<String>> rowsList = new ArrayList<>();
+//        for (int i = 0; i < mapList.size(); i++) {
+//            List<String> row = new ArrayList<>();
+//            int finalI = i;
+//            keyObjects.forEach(key -> row.add(String.valueOf(mapList.get(finalI).get(key))));
+//            rowsList.add(row);
+//        }
 
-        List<List<String>> rowsList = new ArrayList<>();
-        for (int i = 0; i < mapList.size(); i++) {
+
+        List<String> headersList = new ArrayList<>();
+        headersList.add("Id");
+        headersList.add("F-Name");
+        headersList.add("L-Name");
+        headersList.add("Email");
+
+        List<List<String>> rowsList2 = new ArrayList<>();
+
+        for (int i = 0; i < 5; i++) {
             List<String> row = new ArrayList<>();
-            int finalI = i;
-            keyObjects.forEach(key -> row.add(String.valueOf(mapList.get(finalI).get(key))));
-            rowsList.add(row);
+            row.add("男产生的水电费第三方");
+            row.add(UUID.randomUUID().toString());
+            row.add(UUID.randomUUID().toString());
+            row.add(UUID.randomUUID().toString());
+            rowsList2.add(row);
         }
-        return tableGenerator.generateTable(headList, rowsList);
+        return tableGenerator.generateTable(headersList, rowsList2);
     }
 
 

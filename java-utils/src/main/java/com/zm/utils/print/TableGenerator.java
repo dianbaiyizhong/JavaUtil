@@ -16,7 +16,6 @@ class TableGenerator {
         int rowHeight = overRiddenHeaderHeight.length > 0 ? overRiddenHeaderHeight[0] : 1;
 
         Map<Integer, Integer> columnMaxWidthMapping = getMaximumWidhtofTable(headersList, rowsList);
-
         stringBuilder.append(NEW_LINE);
         stringBuilder.append(NEW_LINE);
         createRowLine(stringBuilder, headersList.size(), columnMaxWidthMapping);
@@ -86,7 +85,6 @@ class TableGenerator {
             }
         }
 
-
         for (List<String> row : rowsList) {
 
             for (int columnIndex = 0; columnIndex < row.size(); columnIndex++) {
@@ -140,6 +138,7 @@ class TableGenerator {
 
     }
 
+
     public static void main(String[] args) {
         TableGenerator tableGenerator = new TableGenerator();
 
@@ -153,7 +152,7 @@ class TableGenerator {
 
         for (int i = 0; i < 5; i++) {
             List<String> row = new ArrayList<>();
-            row.add(UUID.randomUUID().toString());
+            row.add("nan");
             row.add(UUID.randomUUID().toString());
             row.add(UUID.randomUUID().toString());
             row.add(UUID.randomUUID().toString());

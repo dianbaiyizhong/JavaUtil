@@ -14,7 +14,6 @@
         <module>java-log</module>
         <module>calcite-demo</module>
         <module>object-pool</module>
-        <module>java-lucene</module>
     </modules>
 
 
@@ -61,6 +60,7 @@
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.36</version>
         </dependency>
+
 
 
 
