@@ -20,7 +20,6 @@ public class WebQuestionBank31V2 {
     }
     public static void main(String[] args) throws IOException {
 
-        JSON.parseObject("",O)
         // 1.获取连接
         String url = "https://w.163.com/h5/xyq/dtk/index.html#/jiaoshijie";
         Document document = Jsoup.connect(url).get();
