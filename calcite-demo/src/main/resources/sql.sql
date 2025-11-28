@@ -1,0 +1,5 @@
+SELECT
+    *
+FROM
+    MILLION_DATA_INDEX a JOIN MILLION_DATA_INDEX2 b on a.id = b.id
+

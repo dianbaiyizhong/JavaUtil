@@ -1,0 +1,16 @@
+{
+  "version": "1.0",
+  "defaultSchema": "elasticsearch",
+  "schemas": [
+    {
+      "name": "elasticsearch",
+      "type": "custom",
+      "factory": "org.apache.calcite.adapter.elasticsearch.ElasticsearchSchemaFactory",
+      "operand": {
+        "coordinates": "{'127.0.0.1': 9200}",
+        "index": "your_index_name",
+        "enableJoin": true
+      }
+    }
+  ]
+}
