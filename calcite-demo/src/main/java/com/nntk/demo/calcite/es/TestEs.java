@@ -1,27 +1,17 @@
-package com.nntk.demo.calcite;
+package com.nntk.demo.calcite.es;
 
 import cn.hutool.core.io.resource.ResourceUtil;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.calcite.jdbc.CalciteConnection;
-import org.apache.calcite.schema.SchemaPlus;
-
-import java.nio.charset.Charset;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.Properties;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.calcite.adapter.elasticsearch.ElasticsearchSchema;
 import org.apache.calcite.jdbc.CalciteConnection;
 import org.apache.calcite.schema.SchemaPlus;
 import org.apache.http.HttpHost;
+import org.elasticsearch.client.RestClient;
 
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.sql.*;
 import java.util.Properties;
-
-import org.elasticsearch.client.RestClient;
 public class TestEs {
 
     public static void main(String[] args) throws SQLException, IOException {
@@ -36,8 +26,7 @@ public class TestEs {
         // 2.1 设置连接参数
         Properties info = new Properties();
         // 不区分sql大小写
-        info.setProperty("caseSensitive", "true");
-        info.setProperty("enableJoin", "true");
+        info.setProperty("caseSensitive", "false");
 
         // 2.2 获取标准的JDBC Connection
         Connection connection = DriverManager.getConnection("jdbc:calcite:", info);
@@ -53,18 +42,12 @@ public class TestEs {
 
         // 5.执行SQL查询，通过SQL方式访问object对象实例
         // 分页查询
-//        String sql = "SELECT * FROM es.p7i_city WHERE _MAP['city_code'] = '0311'";
-        String sql = ResourceUtil.readStr("sql.sql", Charset.defaultCharset());
+        String sql = ResourceUtil.readStr("es_all_column.sql", Charset.defaultCharset());
         Statement statement = calciteConnection.createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
         // 6.遍历打印查询结果集
-        while (resultSet.next()) {
-            System.out.println(resultSet.getString(1));
-        }
+        System.out.println(ResultSetUtil.resultString(resultSet));
         restClient.close();
-
-
-
 
     }
 }

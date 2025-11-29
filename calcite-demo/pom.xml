@@ -22,7 +22,7 @@
         <dependency>
             <groupId>org.apache.calcite</groupId>
             <artifactId>calcite-elasticsearch</artifactId>
-            <version>1.34.0</version>
+            <version>1.41.0</version>
         </dependency>
 
         <dependency>
@@ -34,7 +34,7 @@
         <dependency>
             <groupId>org.apache.calcite</groupId>
             <artifactId>calcite-core</artifactId>
-            <version>1.34.0</version>
+            <version>1.41.0</version>
         </dependency>
 
         <dependency>
