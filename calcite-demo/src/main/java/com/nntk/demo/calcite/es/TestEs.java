@@ -42,7 +42,7 @@ public class TestEs {
 
         // 5.执行SQL查询，通过SQL方式访问object对象实例
         // 分页查询
-        String sql = ResourceUtil.readStr("es_join.sql", Charset.defaultCharset());
+        String sql = ResourceUtil.readStr("es_all_column.sql", Charset.defaultCharset());
         Statement statement = calciteConnection.createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
         // 6.遍历打印查询结果集

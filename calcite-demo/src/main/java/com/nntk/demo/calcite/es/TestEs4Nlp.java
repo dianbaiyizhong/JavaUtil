@@ -26,7 +26,7 @@ public class TestEs4Nlp {
 //        properties.put(PROP_CONNECTIONPROPERTIES, "client.transport.ignore_cluster_name=true;xpack.security.user=elastic:5laftq1NilavFTibKOaZ");
         DruidDataSource dds = (DruidDataSource) ElasticSearchDruidDataSourceFactory.createDataSource(properties);
         Connection connection = dds.getConnection();
-        String sql = ResourceUtil.readStr("es-sql3.sql", Charset.defaultCharset());
+        String sql = ResourceUtil.readStr("es-sql.sql", Charset.defaultCharset());
 
         PreparedStatement ps = connection.prepareStatement(sql);
         ResultSet resultSet = ps.executeQuery();
