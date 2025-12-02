@@ -3,6 +3,7 @@ package com.nntk.demo.calcite.es;
 import cn.hutool.core.io.resource.ResourceUtil;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.pool.ElasticSearchDruidDataSourceFactory;
+import org.nlpcn.es4sql.SearchDao;
 
 import java.nio.charset.Charset;
 import java.sql.Connection;
@@ -20,13 +21,20 @@ public class TestEs4Nlp {
 
         Properties properties = new Properties();
         properties.put(PROP_URL, "jdbc:elasticsearch://127.0.0.1:9300");
-//        properties.put(PROP_CONNECTIONPROPERTIES, "cluster.name=851bf98ed24a");
-        properties.put(PROP_CONNECTIONPROPERTIES, "client.transport.ignore_cluster_name=true");
+
+
+        SearchDao searchDao = new SearchDao(null);
+        String dsl = searchDao.explain("SELECT * FROM myindex where id = 1").explain().explain();
+
+        System.out.println(dsl);
+
+        properties.put(PROP_CONNECTIONPROPERTIES, "xpack.security.transport.ssl.enabled=true;client.transport.sniff=false;client.transport.ignore_cluster_name=true;xpack.security.user=elastic:123456");
+//        properties.put(PROP_CONNECTIONPROPERTIES, "client.transport.ignore_cluster_name=true");
 
 //        properties.put(PROP_CONNECTIONPROPERTIES, "client.transport.ignore_cluster_name=true;xpack.security.user=elastic:5laftq1NilavFTibKOaZ");
         DruidDataSource dds = (DruidDataSource) ElasticSearchDruidDataSourceFactory.createDataSource(properties);
         Connection connection = dds.getConnection();
-        String sql = ResourceUtil.readStr("es-sql.sql", Charset.defaultCharset());
+        String sql = ResourceUtil.readStr("es-sql2.sql", Charset.defaultCharset());
 
         PreparedStatement ps = connection.prepareStatement(sql);
         ResultSet resultSet = ps.executeQuery();
@@ -51,4 +59,6 @@ public class TestEs4Nlp {
         dds.close();
 
     }
+
+
 }
